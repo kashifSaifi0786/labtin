@@ -26,6 +26,8 @@ import { login, logout, selectUser } from "./store/AuthSlice";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 import { useDispatch } from "react-redux";
+import ManagePackage from "./Dashboard/Manage/ManagePackage/ManagePackage";
+import SlideShow from "./Dashboard/Appearance/SlideShow/SlideShow";
 
 function App() {
   const Loggeduser = useSelector(selectUser) || localStorage.getItem("user");
@@ -41,7 +43,7 @@ function App() {
   });
   return (
     <div className="App">
-      {Loggeduser ? (
+      {/* {Loggeduser ? (
         <BrowserRouter>
           {<Header />}
           <Routes>
@@ -66,7 +68,9 @@ function App() {
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </BrowserRouter>
-      )}
+      )} */}
+      {/* <ManagePackage /> */}
+      <SlideShow />
     </div>
   );
 }
