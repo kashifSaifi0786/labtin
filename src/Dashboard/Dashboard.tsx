@@ -1,5 +1,5 @@
 import React from "react";
-import "./LandingPage.css";
+import "../First/LandingPage.css";
 // import Slider from "../components/Slider";
 import CircleImage from "../components/CircleImage";
 import LabTestCards from "../components/LabTestCards";
@@ -20,7 +20,7 @@ import Crousel from "../components/Crousels/Crousel";
 import MobileCrousel from "../components/Crousels/MobileCrousel";
 
 
-const Landingpage = () => {
+const Dashboard = () => {
   const navigate = useNavigate();
   const [value, setValue] = React.useState(0);
 
@@ -174,4 +174,4 @@ const Landingpage = () => {
   );
 };
 
-export default Landingpage;
+export default Dashboard;

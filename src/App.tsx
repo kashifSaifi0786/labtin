@@ -21,6 +21,7 @@ import ListPakage from "./DesktopPages/ListPakage";
 import Login from "./components/Login";
 import SignupPage from "./components/SignupPage";
 import Fotter from "./components/Fotter";
+import Dashboard from './Dashboard/Dashboard'
 import { useSelector } from "react-redux";
 import { login, logout, selectUser } from "./store/AuthSlice";
 import { onAuthStateChanged } from "firebase/auth";
@@ -30,6 +31,7 @@ import { useDispatch } from "react-redux";
 function App() {
   const Loggeduser = useSelector(selectUser) || localStorage.getItem("user");
   const dispatch = useDispatch();
+  const admin = true;
   onAuthStateChanged(auth, (user) => {
     if (user) {
       dispatch(login(user.providerData));
@@ -45,7 +47,7 @@ function App() {
         <BrowserRouter>
           {<Header />}
           <Routes>
-            <Route path="/" element={<Landingpage />} />
+            <Route path="/" element={admin ? <Dashboard />:<Landingpage />} />
             <Route path="/MyReport" element={<Report />} />
             <Route path="/Booking" element={<Booking />} />
             <Route path="/TestPakage" element={<PakagesTab />} />
