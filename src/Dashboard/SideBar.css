@@ -1,0 +1,17 @@
+.box_sm {
+    display: none;
+}
+
+.box_lg {
+    display: block;
+}
+
+@media only screen and (max-width: 900px) {
+    .box_sm {
+        display: block;
+    }
+
+    .box_lg {
+        display: none;
+    }
+}

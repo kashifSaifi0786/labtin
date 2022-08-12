@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -8,84 +8,174 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import MenuIcon from '@mui/icons-material/Menu';
+import AutoGraphOutlinedIcon from '@mui/icons-material/AutoGraphOutlined';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import LanIcon from '@mui/icons-material/Lan';
+import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
+import CallIcon from '@mui/icons-material/Call';
+import './SideBar.css';
 
-type Anchor = 'top' | 'left' | 'bottom' | 'right';
+export default function SideBar() {
+  const [state, setState] = React.useState(false);
 
-export default function SwipeableTemporaryDrawer() {
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
 
   const toggleDrawer =
-    (anchor: Anchor, open: boolean) =>
-    (event: React.KeyboardEvent | React.MouseEvent) => {
-      if (
-        event &&
-        event.type === 'keydown' &&
-        ((event as React.KeyboardEvent).key === 'Tab' ||
-          (event as React.KeyboardEvent).key === 'Shift')
-      ) {
-        return;
-      }
+    (open: boolean) =>
+      (event: React.KeyboardEvent | React.MouseEvent) => {
+        if (
+          event.type === 'keydown' &&
+          ((event as React.KeyboardEvent).key === 'Tab' ||
+            (event as React.KeyboardEvent).key === 'Shift')
+        ) {
+          return;
+        }
 
-      setState({ ...state, [anchor]: open });
-    };
+        setState(open);
+      };
 
-  const list = (anchor: Anchor) => (
+
+  const menuItems = <>
     <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      sx={{ width: 250, px: 2.5, pt: 2 }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
     >
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+
+      <List subheader='Dashboard'>
+        <ListItem >
+          <ListItemButton>
+            <ListItemIcon>
+              <AutoGraphOutlinedIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Analytics'} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem >
+          <ListItemButton>
+            <ListItemIcon>
+              <ShoppingCartOutlinedIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Order'} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem >
+          <ListItemButton>
+            <ListItemIcon>
+              <AddShoppingCartOutlinedIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Create Manual Order'} />
+          </ListItemButton>
+        </ListItem>
       </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+      <List subheader="Manage">
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <LocalOfferIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Manage Discount'} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <MedicalServicesIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Manage Test'} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <MedicalServicesIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Manage Package'} />
+          </ListItemButton>
+        </ListItem>  <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <MedicalServicesIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Manage Partner Labs'} />
+          </ListItemButton>
+        </ListItem>  <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <MedicalServicesIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Manage Radiology Tests'} />
+          </ListItemButton>
+        </ListItem>  <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <MedicalServicesIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Manage Radoiology Partners'} />
+          </ListItemButton>
+        </ListItem>  <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <AdminPanelSettingsIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Manage Customers'} />
+          </ListItemButton>
+        </ListItem>  <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <LanIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Manage Employees'} />
+          </ListItemButton>
+        </ListItem>  <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <AddLocationAltIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Manage Location'} />
+          </ListItemButton>
+        </ListItem>
       </List>
+      <List subheader='Health Expert'>
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <CallIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Call Request'} />
+          </ListItemButton>
+        </ListItem>
+
+      </List>
+
     </Box>
-  );
+  </>
+
 
   return (
     <div>
-      {(['left', 'right', 'top', 'bottom'] as const).map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <SwipeableDrawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
-          >
-            {list(anchor)}
-          </SwipeableDrawer>
-        </React.Fragment>
-      ))}
+      <React.Fragment >
+        <Button onClick={toggleDrawer(true)}>
+          <MenuIcon />
+        </Button>
+        <Drawer
+          anchor='left'
+          open={state}
+          onClose={toggleDrawer(false)}
+        >
+          <div className='box_sm'>
+          {menuItems}
+          </div>
+          <div className='box_lg'>
+          {menuItems}
+          </div>
+        </Drawer>
+      </React.Fragment>
     </div>
   );
 }
