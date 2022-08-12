@@ -26,8 +26,11 @@ import { login, logout, selectUser } from "./store/AuthSlice";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 import { useDispatch } from "react-redux";
+import Dashboard from "./Dashboard/Dashboard";
 import ManagePackage from "./Dashboard/Manage/ManagePackage/ManagePackage";
+import AddBanner from "./Dashboard/Appearance/SlideShow/AddBanner";
 import SlideShow from "./Dashboard/Appearance/SlideShow/SlideShow";
+import AddPackage from "./Dashboard/Manage/ManagePackage/AddPackage";
 
 function App() {
   const Loggeduser = useSelector(selectUser) || localStorage.getItem("user");
@@ -43,7 +46,7 @@ function App() {
   });
   return (
     <div className="App">
-      {/* {Loggeduser ? (
+      {Loggeduser ? (
         <BrowserRouter>
           {<Header />}
           <Routes>
@@ -55,6 +58,12 @@ function App() {
             <Route path="/Radiology" element={<Radiology />} />
             <Route path="/BookingPackages" element={<ListPakage />} />
             <Route path="/selectLab" element={<ShowLabs />} />
+            <Route path="/dashboard" element={<Dashboard />}>
+              <Route path="managePackage" element={<ManagePackage />} />
+              <Route path="addPackage" element={<AddPackage />} />
+              <Route path="slideshow" element={<SlideShow />} />
+              <Route path="addBanner" element={<AddBanner />} />
+            </Route>
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
           <Fotter />
@@ -68,9 +77,7 @@ function App() {
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </BrowserRouter>
-      )} */}
-      {/* <ManagePackage /> */}
-      <SlideShow />
+      )}
     </div>
   );
 }

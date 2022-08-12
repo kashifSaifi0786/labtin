@@ -7,6 +7,7 @@ const AddPackage = () => {
     }
     return (
         <div className='add_package'>
+            <h1 className='heading'>Add New Package</h1>
             <form onSubmit={handleAddPackage}>
                 <input type="text" name="title" placeholder='Package Title' />
                 <textarea name="detail" placeholder='Package Details' />
