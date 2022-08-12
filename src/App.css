@@ -10,7 +10,7 @@
 
 .table-container table {
   border-collapse: collapse;
-  min-width: 768px;
+  min-width: 600px;
 }
 
 .table-container table th {
@@ -38,11 +38,23 @@ th {
   padding: 3px;
   font-size: 15px;
   cursor: pointer;
+  width: 50px;
+}
+
+.table-container table .edit-btn {
+  border: none;
+  background-color: rgb(194, 194, 39);
+  color: white;
+  border-radius: 5px;
+  padding: 3px;
+  font-size: 15px;
+  cursor: pointer;
+  width: 50px;
 }
 
 
 /* styles for all add buttons  */
-.add-btn{
+.add-btn {
   border: none;
   background-color: rgb(141, 141, 141);
   color: white;
@@ -51,4 +63,14 @@ th {
   font-weight: 600;
   border-radius: 5px;
   cursor: pointer;
+}
+
+/* styles for all NavLink  */
+.nav_link {
+  color: white;
+  text-decoration: none;
+}
+
+.active {
+  color: lightseagreen;
 }

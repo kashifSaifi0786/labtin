@@ -1,14 +1,15 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import SideBar from './SideBar';
+import './Dashboard.css';
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className='dashboard'>
       <div>
         <SideBar />
       </div>
-      <div>
+      <div style={{ padding: '20px' }}>
         <Outlet />
       </div>
     </div>

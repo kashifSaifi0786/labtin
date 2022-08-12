@@ -29,6 +29,9 @@ import { auth } from "./firebase";
 import { useDispatch } from "react-redux";
 import ManagePackage from "./Dashboard/Manage/ManagePackage/ManagePackage";
 import ManageCustomers from "./Dashboard/Manage/ManageCustomers/ManageCustomers";
+import SlideShow from "./Dashboard/Appearance/SlideShow/SlideShow";
+import AddPackage from "./Dashboard/Manage/ManagePackage/AddPackage";
+import AddBanner from "./Dashboard/Appearance/SlideShow/AddBanner";
 
 function App() {
   const Loggeduser = useSelector(selectUser) || localStorage.getItem("user");
@@ -59,15 +62,21 @@ function App() {
             <Route path="/selectLab" element={<ShowLabs />} />
 
             {/* New routes  */}
-            <Route path='/dashboard' element={<Dashboard />}>
-              <Route path='managePackage' element={<ManagePackage />} />
-              <Route path='manageCustomers' element={<ManageCustomers />} />
-            </Route>
+            {
+              admin &&
+              <Route path='/dashboard' element={<Dashboard />}>
+                <Route path='managePackage' element={<ManagePackage />} />
+                <Route path='manageCustomers' element={<ManageCustomers />} />
+                <Route path='slideShow' element={<SlideShow />} />
+                <Route path='addPackage' element={<AddPackage />} />
+                <Route path='addBanner' element={<AddBanner />} />
+              </Route>
+            }
             {/* ...............  */}
 
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
-          <Fotter />
+          {!admin && <Fotter />}
           {<BottomNavigationElement />}
         </BrowserRouter>
       ) : (

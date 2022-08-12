@@ -2,8 +2,11 @@ import React from 'react';
 import './SlideShow.css';
 import '../../../App.css';
 import BannerRow from './BannerRow';
+import { useNavigate } from 'react-router-dom';
 
 const SlideShow = () => {
+
+    const navigate = useNavigate();
 
     const banners = [
         { _id: 1, title: 'banner 1', secondaryTitle: 'secondary title secondary title', bannerImg: 'https://i.ibb.co/Z2GqcJr/first-Icon-3.png', description: 'description description description description description description description description description description description description description description' },
@@ -18,7 +21,7 @@ const SlideShow = () => {
         <div className='slide-show'>
             {/* <AddPackage /> */}
             <p className='btn-container'>
-                <button className='add-btn'>+ Add Banner</button>
+                <button onClick={() => navigate('/dashboard/addBanner')} className='add-btn'>+ Add Banner</button>
             </p>
             <div className='table-container'>
                 <table>

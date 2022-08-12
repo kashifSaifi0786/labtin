@@ -19,6 +19,8 @@ import LanIcon from '@mui/icons-material/Lan';
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import CallIcon from '@mui/icons-material/Call';
 import './SideBar.css';
+import { Link, NavLink } from 'react-router-dom';
+import LabtinLogo from '../image/LabtinLogo.png';
 
 export default function SideBar() {
   const [state, setState] = React.useState(false);
@@ -39,7 +41,7 @@ export default function SideBar() {
       };
 
 
-  const menuItems = <>
+  const menuItems = <div className="menu_container">
     <Box
       sx={{ width: 300, py: 5, backgroundColor: '#17203F', color: 'white' }}
       role="presentation"
@@ -47,122 +49,250 @@ export default function SideBar() {
       onKeyDown={toggleDrawer(false)}
     >
 
+      {/* list items for dashboard section  */}
       <List>
         <h3>Dashboard</h3>
-        <ListItem >
-          <ListItemButton>
-            <ListItemIcon>
-              <AutoGraphOutlinedIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Analytics'} />
-          </ListItemButton>
-        </ListItem>
-        <ListItem >
-          <ListItemButton>
-            <ListItemIcon>
-              <ShoppingCartOutlinedIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Order'} />
-          </ListItemButton>
-        </ListItem>
-        <ListItem >
-          <ListItemButton>
-            <ListItemIcon>
-              <AddShoppingCartOutlinedIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Create Manual Order'} />
-          </ListItemButton>
-        </ListItem>
+        <NavLink to='/dashboard/analytics' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <AutoGraphOutlinedIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Analytics'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
+        <NavLink to='/dashboard/orders' className="nav_link">
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <ShoppingCartOutlinedIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Order'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
+        <NavLink to='/dashboard/createManualOrder' className="nav_link">
+
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <AddShoppingCartOutlinedIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Create Manual Order'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
       </List>
+
+      {/* list items for manage section  */}
       <List>
         <h3>Manage</h3>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <LocalOfferIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Manage Discount'} />
-          </ListItemButton>
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <MedicalServicesIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Manage Test'} />
-          </ListItemButton>
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <MedicalServicesIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Manage Package'} />
-          </ListItemButton>
-        </ListItem>  <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <MedicalServicesIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Manage Partner Labs'} />
-          </ListItemButton>
-        </ListItem>  <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <MedicalServicesIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Manage Radiology Tests'} />
-          </ListItemButton>
-        </ListItem>  <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <MedicalServicesIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Manage Radoiology Partners'} />
-          </ListItemButton>
-        </ListItem>  <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <AdminPanelSettingsIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Manage Customers'} />
-          </ListItemButton>
-        </ListItem>  <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <LanIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Manage Employees'} />
-          </ListItemButton>
-        </ListItem>  <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <AddLocationAltIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Manage Location'} />
-          </ListItemButton>
-        </ListItem>
+        <NavLink to='/dashboard/manageDiscount' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <LocalOfferIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Manage Discount'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
+        <NavLink to='/dashboard/manageTest' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <MedicalServicesIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Manage Test'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
+        <NavLink to='/dashboard/managePackage' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <MedicalServicesIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Manage Package'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
+        <NavLink to='/dashboard/managePartnerLabs' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <MedicalServicesIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Manage Partner Labs'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
+        <NavLink to='/dashboard/manageRadiologyTests' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <MedicalServicesIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Manage Radiology Tests'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
+        <NavLink to='/dashboard/manageRadiologyPartner' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <MedicalServicesIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Manage Radiology Partner'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
+        <NavLink to='/dashboard/manageCustomers' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <AdminPanelSettingsIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Manage Customers'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
+        <NavLink to='/dashboard/manageEmployees' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <LanIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Manage Employees'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
+        <NavLink to='/dashboard/manageLocation' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <AddLocationAltIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Manage Location'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
       </List>
+
+
+      {/* list items for health expert section */}
       <List>
         <h3>Health Expert</h3>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <CallIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Call Request'} />
-          </ListItemButton>
-        </ListItem>
+
+        <NavLink to='/dashboard/callRequest' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <CallIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Call Request'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
+        <NavLink to='/dashboard/prescriptionUploaded' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <CallIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Prescription Uploaded'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
+        <NavLink to='/dashboard/customerComplaints' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <CallIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Customer Complaints'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
 
       </List>
 
+
+      {/* list items for health expert section */}
+      <List>
+        <h3>Appearance</h3>
+        <NavLink to='/dashboard/slideShow' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <CallIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Slideshow'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
+        <NavLink to='/dashboard/highlightTests' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <CallIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Highlight Tests'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
+        <NavLink to='/dashboard/highlightPackages' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <CallIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Highlight Packages'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
+        <NavLink to='/dashboard/analytics' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <CallIcon style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Call Request'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+      </List>
+
+      <Link to='/'>
+        <div className="labtin_logo">
+          <img src={LabtinLogo} alt="" />
+        </div>
+      </Link>
+
     </Box>
-  </>
+  </div>
 
 
   return (
-    <div>
-      <React.Fragment >
+    <>
+      <div className='box_sm'>
         <Button onClick={toggleDrawer(true)}>
           <MenuIcon />
         </Button>
@@ -171,14 +301,12 @@ export default function SideBar() {
           open={state}
           onClose={toggleDrawer(false)}
         >
-          <div className='box_sm'>
-            {menuItems}
-          </div>
-          <div className='box_lg'>
-            {menuItems}
-          </div>
+          {menuItems}
         </Drawer>
-      </React.Fragment>
-    </div>
+      </div>
+      <div className='box_lg'>
+        {menuItems}
+      </div>
+    </>
   );
 }

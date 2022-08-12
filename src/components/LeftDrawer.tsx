@@ -28,6 +28,8 @@ export default function TemporaryDrawer() {
     right: false,
   });
 
+  const admin = true;
+
   const handleModal = () => {
     const modal = document.querySelector(".menuModal");
     const header: any = document.querySelector(".header_div");
@@ -65,32 +67,43 @@ export default function TemporaryDrawer() {
             <HomeIcon /> <span className="icon_name">Home</span>
           </div>
         </Link>
-        <Link to="/Booking">
-          <div className="sidebar_icons">
-            <CalendarMonthIcon /> <span className="icon_name">My Bookings</span>
-          </div>
-        </Link>
-        <Link to="/MyReports">
-          <div className="sidebar_icons">
-            <SummarizeRoundedIcon />{" "}
-            <span className="icon_name">My Reports</span>
-          </div>
-        </Link>
-        <Link to="/Address">
-          <div className="sidebar_icons">
-            <LocationOnRoundedIcon /> <span className="icon_name">Address</span>
-          </div>
-        </Link>
-        <Link to="/Offers">
-          <div className="sidebar_icons">
-            <LocalOfferIcon /> <span className="icon_name">Offers</span>
-          </div>
-        </Link>
-        <Link to="/Help">
-          <div className="sidebar_icons">
-            <HelpIcon /> <span className="icon_name">Help</span>
-          </div>
-        </Link>
+        {
+          admin ?
+            <Link to="/dashboard">
+              <div className="sidebar_icons">
+                <CalendarMonthIcon /> <span className="icon_name">Dashboard</span>
+              </div>
+            </Link>
+            :
+            <>
+              <Link to="/Booking">
+                <div className="sidebar_icons">
+                  <CalendarMonthIcon /> <span className="icon_name">My Bookings</span>
+                </div>
+              </Link>
+              <Link to="/MyReports">
+                <div className="sidebar_icons">
+                  <SummarizeRoundedIcon />{" "}
+                  <span className="icon_name">My Reports</span>
+                </div>
+              </Link>
+              <Link to="/Address">
+                <div className="sidebar_icons">
+                  <LocationOnRoundedIcon /> <span className="icon_name">Address</span>
+                </div>
+              </Link>
+              <Link to="/Offers">
+                <div className="sidebar_icons">
+                  <LocalOfferIcon /> <span className="icon_name">Offers</span>
+                </div>
+              </Link>
+              <Link to="/Help">
+                <div className="sidebar_icons">
+                  <HelpIcon /> <span className="icon_name">Help</span>
+                </div>
+              </Link>
+            </>
+        }
         <Link to="/Logout">
           <div className="sidebar_icons">
             <LogoutIcon /> <span className="icon_name">Logout</span>

@@ -23,6 +23,7 @@ import { auth } from "../firebase";
 
 const Header = () => {
   const [show, setShow] = useState(false);
+  const admin = true;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handlenav1 = (e: any) => {
@@ -154,45 +155,59 @@ const Header = () => {
                   </div>
                 </Link>
               </li>
-              <li>
-                <Link to="/Booking">
-                  <div className="sidebar_icons1">
-                    <CalendarMonthIcon />{" "}
-                    <span className="icon_name1">My Bookings</span>
-                  </div>
-                </Link>
-              </li>
-              <li>
-                <Link to="/MyReport">
-                  <div className="sidebar_icons1">
-                    <SummarizeRoundedIcon />{" "}
-                    <span className="icon_name1">My Reports</span>
-                  </div>
-                </Link>
-              </li>
-              <li>
-                <Link to="/Address">
-                  <div className="sidebar_icons1">
-                    <LocationOnRoundedIcon />{" "}
-                    <span className="icon_name1">Address</span>
-                  </div>
-                </Link>
-              </li>
-              <li>
-                <Link to="/Offers">
-                  <div className="sidebar_icons1">
-                    <LocalOfferIcon />{" "}
-                    <span className="icon_name1">Offers</span>
-                  </div>
-                </Link>
-              </li>
-              <li>
-                <Link to="/Help">
-                  <div className="sidebar_icons1">
-                    <HelpIcon /> <span className="icon_name1">Help</span>
-                  </div>
-                </Link>
-              </li>
+              {
+                admin ?
+                  <li>
+                    <Link to="/dashboard">
+                      <div className="sidebar_icons1">
+                        <CalendarMonthIcon />{" "}
+                        <span className="icon_name1">Dashboard</span>
+                      </div>
+                    </Link>
+                  </li>
+                  :
+                  <>
+                    <li>
+                      <Link to="/Booking">
+                        <div className="sidebar_icons1">
+                          <CalendarMonthIcon />{" "}
+                          <span className="icon_name1">My Bookings</span>
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/MyReport">
+                        <div className="sidebar_icons1">
+                          <SummarizeRoundedIcon />{" "}
+                          <span className="icon_name1">My Reports</span>
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/Address">
+                        <div className="sidebar_icons1">
+                          <LocationOnRoundedIcon />{" "}
+                          <span className="icon_name1">Address</span>
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/Offers">
+                        <div className="sidebar_icons1">
+                          <LocalOfferIcon />{" "}
+                          <span className="icon_name1">Offers</span>
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/Help">
+                        <div className="sidebar_icons1">
+                          <HelpIcon /> <span className="icon_name1">Help</span>
+                        </div>
+                      </Link>
+                    </li>
+                  </>
+              }
               <li>
                 <Link to="/Logout">
                   <div className="sidebar_icons1">
