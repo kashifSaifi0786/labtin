@@ -41,13 +41,14 @@ export default function SideBar() {
 
   const menuItems = <>
     <Box
-      sx={{ width: 250, px: 2.5, pt: 2 }}
+      sx={{ width: 300, py: 5, backgroundColor: '#17203F', color: 'white' }}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
 
-      <List subheader='Dashboard'>
+      <List>
+        <h3>Dashboard</h3>
         <ListItem >
           <ListItemButton>
             <ListItemIcon>
@@ -73,7 +74,8 @@ export default function SideBar() {
           </ListItemButton>
         </ListItem>
       </List>
-      <List subheader="Manage">
+      <List>
+        <h3>Manage</h3>
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
@@ -141,7 +143,8 @@ export default function SideBar() {
           </ListItemButton>
         </ListItem>
       </List>
-      <List subheader='Health Expert'>
+      <List>
+        <h3>Health Expert</h3>
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
@@ -169,10 +172,10 @@ export default function SideBar() {
           onClose={toggleDrawer(false)}
         >
           <div className='box_sm'>
-          {menuItems}
+            {menuItems}
           </div>
           <div className='box_lg'>
-          {menuItems}
+            {menuItems}
           </div>
         </Drawer>
       </React.Fragment>
