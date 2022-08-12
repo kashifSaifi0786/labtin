@@ -20,6 +20,7 @@ import { useDispatch } from "react-redux";
 import { logout } from "../store/AuthSlice";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
+import Sidebar from './sideBar'
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -57,6 +58,7 @@ const Header = () => {
   return (
     <div className="header_div">
       <div className="header_main">
+        <Sidebar />
         <PrescriptionDialog
           className="mymodal"
           overlayClassName="myoverlay"
