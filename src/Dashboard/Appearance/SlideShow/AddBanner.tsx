@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import CustomLink from '../../../components/CustomLink';
+import FormHeading from '../../../components/FormHeading';
 import './AddBanner.css';
 
 const AddBanner = () => {
@@ -9,6 +12,8 @@ const AddBanner = () => {
     }
     return (
         <div className='add_banner'>
+            <CustomLink title={'Back to Slide Show'} />
+            <FormHeading>Add Banner</FormHeading>
             <form onSubmit={handleAddBanner}>
                 <input type="text" name="title" placeholder='Title' />
                 <input type="text" name="secondaryTitle" placeholder='Secondary Title' />

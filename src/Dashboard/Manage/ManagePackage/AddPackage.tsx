@@ -1,4 +1,6 @@
 import React from 'react';
+import CustomLink from '../../../components/CustomLink';
+import FormHeading from '../../../components/FormHeading';
 import './AddPackage.css';
 
 const AddPackage = () => {
@@ -7,7 +9,8 @@ const AddPackage = () => {
     }
     return (
         <div className='add_package'>
-            <h1 className='heading'>Add New Package</h1>
+            <CustomLink title={'Back to Manage Package'} />
+            <FormHeading>Add New Package</FormHeading>
             <form onSubmit={handleAddPackage}>
                 <input type="text" name="title" placeholder='Package Title' />
                 <textarea name="detail" placeholder='Package Details' />

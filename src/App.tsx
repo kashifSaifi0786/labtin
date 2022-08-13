@@ -34,7 +34,7 @@ import AddPackage from "./Dashboard/Manage/ManagePackage/AddPackage";
 import AddBanner from "./Dashboard/Appearance/SlideShow/AddBanner";
 
 function App() {
-  const Loggeduser = useSelector(selectUser) || localStorage.getItem("user");
+  const loggedUser = useSelector(selectUser) || localStorage.getItem("user");
   const dispatch = useDispatch();
   const admin = true;
   onAuthStateChanged(auth, (user) => {
@@ -48,7 +48,7 @@ function App() {
   });
   return (
     <div className="App">
-      {Loggeduser ? (
+      {loggedUser ? (
         <BrowserRouter>
           {<Header />}
           <Routes>

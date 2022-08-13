@@ -2,10 +2,6 @@
     padding: 10px;
 }
 
-.add_package .heading {
-    text-align: center;
-}
-
 .add_package form {
     margin-top: 60px;
     display: flex;

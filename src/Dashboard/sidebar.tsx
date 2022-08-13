@@ -18,6 +18,11 @@ import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import LanIcon from '@mui/icons-material/Lan';
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import CallIcon from '@mui/icons-material/Call';
+import { FaFilePrescription } from 'react-icons/fa';
+import { BiCommentError } from 'react-icons/bi';
+import { MdOutlineSlideshow } from 'react-icons/md';
+import { FaRainbow } from 'react-icons/fa';
+import { FaHighlighter } from 'react-icons/fa';
 import './SideBar.css';
 import { Link, NavLink } from 'react-router-dom';
 import LabtinLogo from '../image/LabtinLogo.png';
@@ -211,7 +216,7 @@ export default function SideBar() {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <CallIcon style={{ color: "white" }} />
+                <FaFilePrescription style={{ color: "white" }} />
               </ListItemIcon>
               <ListItemText primary={'Prescription Uploaded'} />
             </ListItemButton>
@@ -222,7 +227,7 @@ export default function SideBar() {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <CallIcon style={{ color: "white" }} />
+                <BiCommentError style={{ color: "white" }} />
               </ListItemIcon>
               <ListItemText primary={'Customer Complaints'} />
             </ListItemButton>
@@ -239,9 +244,20 @@ export default function SideBar() {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <CallIcon style={{ color: "white" }} />
+                <MdOutlineSlideshow style={{ color: "white" }} />
               </ListItemIcon>
               <ListItemText primary={'Slideshow'} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+
+        <NavLink to='/dashboard/scrollMenu' className="nav_link">
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <FaRainbow style={{ color: "white" }} />
+              </ListItemIcon>
+              <ListItemText primary={'Scroll Menu'} />
             </ListItemButton>
           </ListItem>
         </NavLink>
@@ -250,7 +266,7 @@ export default function SideBar() {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <CallIcon style={{ color: "white" }} />
+                <FaHighlighter style={{ color: "white" }} />
               </ListItemIcon>
               <ListItemText primary={'Highlight Tests'} />
             </ListItemButton>
@@ -268,16 +284,6 @@ export default function SideBar() {
           </ListItem>
         </NavLink>
 
-        <NavLink to='/dashboard/analytics' className="nav_link">
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <CallIcon style={{ color: "white" }} />
-              </ListItemIcon>
-              <ListItemText primary={'Call Request'} />
-            </ListItemButton>
-          </ListItem>
-        </NavLink>
       </List>
 
       <Link to='/'>
