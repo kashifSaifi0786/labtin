@@ -27,9 +27,14 @@ import { login, logout, selectUser } from "./store/AuthSlice";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 import { useDispatch } from "react-redux";
+import ManagePackage from "./Dashboard/Manage/ManagePackage/ManagePackage";
+import ManageCustomers from "./Dashboard/Manage/ManageCustomers/ManageCustomers";
+import SlideShow from "./Dashboard/Appearance/SlideShow/SlideShow";
+import AddPackage from "./Dashboard/Manage/ManagePackage/AddPackage";
+import AddBanner from "./Dashboard/Appearance/SlideShow/AddBanner";
 
 function App() {
-  const Loggeduser = useSelector(selectUser) || localStorage.getItem("user");
+  const loggedUser = useSelector(selectUser) || localStorage.getItem("user");
   const dispatch = useDispatch();
   const admin = true;
   onAuthStateChanged(auth, (user) => {
@@ -43,11 +48,11 @@ function App() {
   });
   return (
     <div className="App">
-      {Loggeduser ? (
+      {loggedUser ? (
         <BrowserRouter>
           {<Header />}
           <Routes>
-            <Route path="/" element={admin ? <Dashboard />:<Landingpage />} />
+            <Route path="/" element={<Landingpage />} />
             <Route path="/MyReport" element={<Report />} />
             <Route path="/Booking" element={<Booking />} />
             <Route path="/TestPakage" element={<PakagesTab />} />
@@ -55,9 +60,23 @@ function App() {
             <Route path="/Radiology" element={<Radiology />} />
             <Route path="/BookingPackages" element={<ListPakage />} />
             <Route path="/selectLab" element={<ShowLabs />} />
+
+            {/* New routes  */}
+            {
+              admin &&
+              <Route path='/dashboard' element={<Dashboard />}>
+                <Route path='managePackage' element={<ManagePackage />} />
+                <Route path='manageCustomers' element={<ManageCustomers />} />
+                <Route path='slideShow' element={<SlideShow />} />
+                <Route path='addPackage' element={<AddPackage />} />
+                <Route path='addBanner' element={<AddBanner />} />
+              </Route>
+            }
+            {/* ...............  */}
+
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
-          <Fotter />
+          {!admin && <Fotter />}
           {<BottomNavigationElement />}
         </BrowserRouter>
       ) : (

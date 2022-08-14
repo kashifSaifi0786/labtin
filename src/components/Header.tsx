@@ -20,10 +20,10 @@ import { useDispatch } from "react-redux";
 import { logout } from "../store/AuthSlice";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
-import Sidebar from './sideBar'
 
 const Header = () => {
   const [show, setShow] = useState(false);
+  const admin = true;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handlenav1 = (e: any) => {
@@ -58,7 +58,6 @@ const Header = () => {
   return (
     <div className="header_div">
       <div className="header_main">
-        <Sidebar />
         <PrescriptionDialog
           className="mymodal"
           overlayClassName="myoverlay"
@@ -156,45 +155,59 @@ const Header = () => {
                   </div>
                 </Link>
               </li>
-              <li>
-                <Link to="/Booking">
-                  <div className="sidebar_icons1">
-                    <CalendarMonthIcon />{" "}
-                    <span className="icon_name1">My Bookings</span>
-                  </div>
-                </Link>
-              </li>
-              <li>
-                <Link to="/MyReport">
-                  <div className="sidebar_icons1">
-                    <SummarizeRoundedIcon />{" "}
-                    <span className="icon_name1">My Reports</span>
-                  </div>
-                </Link>
-              </li>
-              <li>
-                <Link to="/Address">
-                  <div className="sidebar_icons1">
-                    <LocationOnRoundedIcon />{" "}
-                    <span className="icon_name1">Address</span>
-                  </div>
-                </Link>
-              </li>
-              <li>
-                <Link to="/Offers">
-                  <div className="sidebar_icons1">
-                    <LocalOfferIcon />{" "}
-                    <span className="icon_name1">Offers</span>
-                  </div>
-                </Link>
-              </li>
-              <li>
-                <Link to="/Help">
-                  <div className="sidebar_icons1">
-                    <HelpIcon /> <span className="icon_name1">Help</span>
-                  </div>
-                </Link>
-              </li>
+              {
+                admin ?
+                  <li>
+                    <Link to="/dashboard">
+                      <div className="sidebar_icons1">
+                        <CalendarMonthIcon />{" "}
+                        <span className="icon_name1">Dashboard</span>
+                      </div>
+                    </Link>
+                  </li>
+                  :
+                  <>
+                    <li>
+                      <Link to="/Booking">
+                        <div className="sidebar_icons1">
+                          <CalendarMonthIcon />{" "}
+                          <span className="icon_name1">My Bookings</span>
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/MyReport">
+                        <div className="sidebar_icons1">
+                          <SummarizeRoundedIcon />{" "}
+                          <span className="icon_name1">My Reports</span>
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/Address">
+                        <div className="sidebar_icons1">
+                          <LocationOnRoundedIcon />{" "}
+                          <span className="icon_name1">Address</span>
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/Offers">
+                        <div className="sidebar_icons1">
+                          <LocalOfferIcon />{" "}
+                          <span className="icon_name1">Offers</span>
+                        </div>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/Help">
+                        <div className="sidebar_icons1">
+                          <HelpIcon /> <span className="icon_name1">Help</span>
+                        </div>
+                      </Link>
+                    </li>
+                  </>
+              }
               <li>
                 <Link to="/Logout">
                   <div className="sidebar_icons1">
